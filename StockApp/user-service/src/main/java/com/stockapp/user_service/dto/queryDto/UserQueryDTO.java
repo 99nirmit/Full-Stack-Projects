@@ -11,11 +11,13 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserQueryDTO {
 
+    private Long id;
+
     private String name;
 
     private String email;
 
     private String username;
 
-    private String password;
+    private String phoneNumber;
 }

@@ -29,6 +29,8 @@ public class User {
 
     private String username;
 
+    private String phoneNumber;
+
     private String password;
 
     private String status;
@@ -54,5 +56,6 @@ public class User {
     protected void onUpdate(){
         updatedAt = LocalDateTime.now();
     }
+
 
 }

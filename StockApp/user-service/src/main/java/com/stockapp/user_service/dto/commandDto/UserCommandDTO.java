@@ -17,6 +17,10 @@ public class UserCommandDTO {
 
     private String username;
 
+    private String phoneNumber;
+
     private String password;
+
+    private String status;
 
 }
