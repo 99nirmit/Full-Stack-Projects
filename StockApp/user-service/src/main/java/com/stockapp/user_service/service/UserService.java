@@ -8,6 +8,7 @@ import com.stockapp.user_service.repository.RoleRepository;
 import com.stockapp.user_service.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,11 +27,18 @@ public class UserService {
     @Autowired
     private RoleRepository roleRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public UserQueryDTO createUser(UserCommandDTO dto){
         User user = modelMapper.map(dto, User.class);
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
+        user.setStatus("ACTIVE");
+
         Role defaultRole = roleRepository.findByName("REATIL_USER")
                 .orElseThrow(() -> new RuntimeException("Default Role Not Found"));
         user.setRoles(Set.of(defaultRole));
+
         User savedUser = userRepository.save(user);
         return modelMapper.map(savedUser, UserQueryDTO.class);
     }
