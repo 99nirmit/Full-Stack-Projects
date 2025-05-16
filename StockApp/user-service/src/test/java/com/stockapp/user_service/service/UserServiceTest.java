@@ -62,7 +62,7 @@ class UserServiceTest {
         when(passwordEncoder.encode(any(CharSequence.class)))
                 .thenReturn("encryptedPassword");
 
-        when(roleRepository.findByName("RETAIL_USER"))
+        when(roleRepository.findByRoleName("RETAIL_USER"))
                 .thenReturn(Optional.of(new Role()));
 
         when(userRepository.save(any(User.class)))
@@ -79,7 +79,7 @@ class UserServiceTest {
         assertEquals(expectedUser.getId(), actualResult.getId());
 
         verify(userRepository).save(any(User.class));
-        verify(roleRepository).findByName("RETAIL_USER");
+        verify(roleRepository).findByRoleName("RETAIL_USER");
     }
 
     @Test

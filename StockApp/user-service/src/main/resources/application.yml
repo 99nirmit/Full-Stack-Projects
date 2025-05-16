@@ -21,6 +21,10 @@ spring:
     config:
       enabled: false
 
+  main:
+    lazy-initialization: true
+
+
 eureka:
   client:
     service-url:

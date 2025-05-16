@@ -35,7 +35,7 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
         user.setStatus("ACTIVE");
 
-        Role defaultRole = roleRepository.findByName("RETAIL_USER")
+        Role defaultRole = roleRepository.findByRoleName("RETAIL_USER")
                 .orElseThrow(() -> new RuntimeException("Default Role Not Found"));
         user.setRoles(Set.of(defaultRole));
 
