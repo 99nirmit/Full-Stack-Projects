@@ -34,7 +34,7 @@ public class AuthService {
         params.add("client_id", clientId);
         params.add("client_secret", clientSecret);
         params.add("redirect_uri", redirectUri);
-        params.add("grant", "authorization_code");
+        params.add("grant_type", "authorization_code");
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
@@ -61,7 +61,8 @@ public class AuthService {
                 OAUthUserInfo.class
         );
 
-        System.out.println(userResponse.getBody() + " GoogleUserInfo");
+        Object userInfo = userResponse.getBody();
+
 
         return userResponse.getBody();
 
