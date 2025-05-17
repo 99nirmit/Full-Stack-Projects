@@ -1,1 +1,1 @@
-export const AUTH_BASE_URL = "";
+export const AUTH_BASE_URL = "http://localhost:8081";
