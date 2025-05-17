@@ -1,14 +1,16 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Register from "./pages/auth/Register";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import OAuthCallback from "./pages/OAuthCallback";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return <>
-  <Register/>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Register />} />
+      <Route path="/oauth-callback" element={<OAuthCallback />}/>
+    </Routes>
+  </BrowserRouter>
   </>;
 }
 
