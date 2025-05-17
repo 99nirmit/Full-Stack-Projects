@@ -1,1 +1,34 @@
-spring.application.name=auth-service
+server:
+  port: 8081
+
+spring:
+  application:
+    name: auth-service
+
+  cloud:
+    config:
+      enabled: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+    instance:
+      prefer-ip-address: true
+      lease-renewal-interval-in-seconds: 10
+      lease-expiration-duration-in-seconds: 30
+
+logging:
+  level:
+    root: INFO
+
+google:
+  client-id: "1408105754-st2v0784belcum3sq3j8j8sveukk50kn.apps.googleusercontent.com"
+  client-secret: "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"
+  redirect-uri: http://localhost:5173/oauth-callback
+
+jwt:
+  secret: your-jwt-secret
+  expiration: 86400000 # 1 day in ms
