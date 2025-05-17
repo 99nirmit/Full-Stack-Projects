@@ -1,9 +1,9 @@
 import React from "react";
+import { googleAuthUrl } from "../../config";
 
 const Register = () => {
     const signUpWithGoogle = () => {
-        console.log("Google SignUp");
-        
+        window.location.href = googleAuthUrl;
     }
 
   return (
