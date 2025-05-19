@@ -5,6 +5,8 @@ import {oAuthLogin } from "../services/authservice";
 const OAuthCallback = () => {
   const [searchParams] = useSearchParams();
   const code = searchParams.get("code");
+  console.log(code + " code");
+  
 
   useEffect(() => {
     if (code) {
@@ -15,6 +17,8 @@ const OAuthCallback = () => {
   const exchangeCodeForToken = async (code) => {
     try {
       const response = await oAuthLogin(code);
+      console.log(response);
+      
       const data = response.data;
 
       console.log(data);
