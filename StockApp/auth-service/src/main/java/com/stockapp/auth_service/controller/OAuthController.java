@@ -1,5 +1,6 @@
 package com.stockapp.auth_service.controller;
 
+import com.stockapp.auth_service.DTOs.OAUthUserInfo;
 import com.stockapp.auth_service.DTOs.OAuthRequestDto;
 import com.stockapp.auth_service.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,8 @@ public class OAuthController {
     private AuthService authService;
 
     @PostMapping("/oauth/google")
-    public ResponseEntity<?> loginWithGoggle(@RequestBody OAuthRequestDto requestDto){
-        Object userInfo = authService.loginWithGoogle(requestDto.getCode());
+    public ResponseEntity<OAUthUserInfo> loginWithGoggle(@RequestBody OAuthRequestDto requestDto){
+        OAUthUserInfo userInfo = authService.loginWithGoogle(requestDto.getCode());
         return ResponseEntity.ok(userInfo);
     }
 

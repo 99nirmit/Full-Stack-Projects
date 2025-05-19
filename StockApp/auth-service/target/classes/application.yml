@@ -27,7 +27,7 @@ logging:
 google:
   client-id: "1408105754-st2v0784belcum3sq3j8j8sveukk50kn.apps.googleusercontent.com"
   client-secret: "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"
-  redirect-uri: http://localhost:5173/oauth-callback
+  redirect-uri: "http://localhost:5173/oauth-callback"
 
 jwt:
   secret: your-jwt-secret

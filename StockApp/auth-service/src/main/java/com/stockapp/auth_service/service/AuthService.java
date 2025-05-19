@@ -2,6 +2,8 @@ package com.stockapp.auth_service.service;
 
 import com.stockapp.auth_service.DTOs.OAUthUserInfo;
 import com.stockapp.auth_service.DTOs.OAuthResponseDto;
+import com.stockapp.auth_service.repository.UserClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -25,8 +27,11 @@ public class AuthService {
     @Value("${jwt.secret}")
     private String jwtSecret;
 
+    @Autowired
+    private UserClient userClient;
 
-    public Object loginWithGoogle(String code){
+
+    public OAUthUserInfo loginWithGoogle(String code){
 
         RestTemplate restTemplate = new RestTemplate();
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
@@ -54,17 +59,19 @@ public class AuthService {
         HttpEntity<?> userRequest = new HttpEntity<>(authHeader);
 
 
-        HttpEntity<?> userResponse = restTemplate.exchange(
+        HttpEntity<OAUthUserInfo> userResponse = restTemplate.exchange(
                 "https://www.googleapis.com/oauth2/v2/userinfo",
                 HttpMethod.GET,
                 userRequest,
                 OAUthUserInfo.class
         );
 
-        Object userInfo = userResponse.getBody();
+        OAUthUserInfo userInfo = userResponse.getBody();
 
+        //send user info to userService
+        userClient.createUser(userInfo);
 
-        return userResponse.getBody();
+        return userInfo;
 
 
     }
