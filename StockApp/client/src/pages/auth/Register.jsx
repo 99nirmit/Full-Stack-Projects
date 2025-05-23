@@ -14,14 +14,14 @@ const Register = () => {
 
         <form>
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2" htmlFor="username">
-              Username
+            <label className="block text-gray-700 mb-2" htmlFor="name">
+              Name
             </label>
             <input
-              id="username"
+              id="name"
               type="text"
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="Enter username"
+              placeholder="Enter Name"
             />
           </div>
 
@@ -38,6 +38,18 @@ const Register = () => {
           </div>
 
           <div className="mb-6">
+            <label className="block text-gray-700 mb-2" htmlFor="username">
+              Username
+            </label>
+            <input
+              id="username"
+              type="username"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter username"
+            />
+          </div>
+
+          <div className="mb-6">
             <label className="block text-gray-700 mb-2" htmlFor="password">
               Password
             </label>
@@ -46,6 +58,18 @@ const Register = () => {
               type="password"
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter password"
+            />
+          </div>
+
+          <div className="mb-6">
+            <label className="block text-gray-700 mb-2" htmlFor="phoneNumber">
+              Mobile Number
+            </label>
+            <input
+              id="phoneNumber"
+              type="phoneNumber"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter Mobile No."
             />
           </div>
 

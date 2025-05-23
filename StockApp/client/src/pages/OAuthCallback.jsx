@@ -18,9 +18,7 @@ const OAuthCallback = () => {
     try {
       const response = await oAuthLogin(code);
       console.log(response);
-      
       const data = response.data;
-
       console.log(data);
 
       //to dashboard navigate 
