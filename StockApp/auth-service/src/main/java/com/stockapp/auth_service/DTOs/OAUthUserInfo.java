@@ -1,9 +1,12 @@
 package com.stockapp.auth_service.DTOs;
 
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class OAUthUserInfo {
 
     private String email;

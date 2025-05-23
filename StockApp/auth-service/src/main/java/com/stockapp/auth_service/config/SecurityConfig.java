@@ -1,6 +1,6 @@
 package com.stockapp.auth_service.config;
 
-import com.stockapp.auth_service.filter.JwtFilter;
+//import com.stockapp.auth_service.filter.JwtFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,20 +20,22 @@ import java.util.List;
 @Configuration
 public class SecurityConfig {
 
-    @Autowired
-    private JwtFilter jwtFilter;
+//    @Autowired
+//    private JwtFilter jwtFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        return http.authorizeHttpRequests(request -> request
+        return http
+                .cors(Customizer.withDefaults())
+                .authorizeHttpRequests(request -> request
                 .requestMatchers(
                         "/auth-service/oauth/**"
                 )
                 .permitAll()
                 .anyRequest().authenticated())
                 .csrf(AbstractHttpConfigurer::disable)
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+//                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
@@ -51,9 +53,9 @@ public class SecurityConfig {
         return source;
     }
 
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration auth) throws Exception{
-        return auth.getAuthenticationManager();
-    }
+//    public AuthenticationManager authenticationManager(AuthenticationConfiguration auth) throws Exception{
+//        return auth.getAuthenticationManager();
+//    }
 
 
 }
