@@ -1,4 +1,4 @@
-package com.stockapp.user_service.dto.commandDto;
+package com.stockapp.user_service.dto.feignClientDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,15 +9,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserCommandDTO {
-
-    private String name;
+public class OAuthUserDTO {
 
     private String email;
 
-    private String username;
-
-    private String phoneNumber;
-
-    private String status;
+    private String name;
 }

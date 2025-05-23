@@ -20,4 +20,6 @@ public class UserQueryDTO {
     private String username;
 
     private String phoneNumber;
+
+    private String string;
 }
